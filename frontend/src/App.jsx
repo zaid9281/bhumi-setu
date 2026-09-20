@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <h1>BHU-SETU</h1>
+      <h1>BHUMI-SETU</h1>
       <p className="subtitle">Intelligent Land Record Digitization &amp; Validation System</p>
       <div className="status-card">
         <h2>Phase 0 — Environment Smoke Test</h2>

@@ -1,5 +1,5 @@
 """
-BHU-SETU backend entrypoint.
+BHUMI-SETU backend entrypoint.
 """
 
 from fastapi import FastAPI
@@ -9,7 +9,7 @@ from app.api import health, users, documents, land_records, corrections, audit_l
 from app import models  # noqa: F401 — registers all models on Base.metadata
 
 app = FastAPI(
-    title="BHU-SETU API",
+    title="BHUMI-SETU API",
     description="Intelligent Land Record Digitization & Validation System",
     version="0.1.0",
 )
@@ -33,7 +33,7 @@ app.include_router(audit_logs.router)
 @app.get("/")
 def root():
     return {
-        "project": "BHU-SETU",
+        "project": "BHUMI-SETU",
         "phase": "1 — backend core",
         "docs": "/docs",
     }

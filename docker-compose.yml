@@ -1,7 +1,7 @@
 services:
   db:
     image: postgis/postgis:16-3.4
-    container_name: bhusetu-db
+    container_name: bhumisetu-db
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-bhusetu}
@@ -19,7 +19,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: bhusetu-redis
+    container_name: bhumisetu-redis
     restart: unless-stopped
     ports:
       - "6379:6379"
@@ -31,7 +31,7 @@ services:
 
   minio:
     image: pgsty/silo:latest
-    container_name: bhusetu-minio
+    container_name: bhumisetu-minio
     restart: unless-stopped
     command: server /data --console-address ":9001"
     environment:
@@ -45,7 +45,7 @@ services:
 
   keycloak:
     image: quay.io/keycloak/keycloak:25.0
-    container_name: bhusetu-keycloak
+    container_name: bhumisetu-keycloak
     restart: unless-stopped
     command: start-dev
     environment:
@@ -58,7 +58,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: bhusetu-backend
+    container_name: bhumisetu-backend
     restart: unless-stopped
     env_file: .env
     environment:
@@ -79,7 +79,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: bhusetu-celery-worker
+    container_name: bhumisetu-celery-worker
     restart: unless-stopped
     env_file: .env
     environment:
@@ -98,7 +98,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: bhusetu-frontend
+    container_name: bhumisetu-frontend
     restart: unless-stopped
     volumes:
       - ./frontend:/app
